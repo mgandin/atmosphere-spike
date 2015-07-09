@@ -12,7 +12,7 @@ import javax.ws.rs.PathParam;
 public class PaymentResources {
 
 
-    private final Logger logger = LoggerFactory.getLogger(PaymentResources.class);
+    private static final Logger logger = LoggerFactory.getLogger(PaymentResources.class);
 
     @Autowired
     private Payment payment;
