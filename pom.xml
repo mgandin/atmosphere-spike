@@ -140,6 +140,19 @@
             <version>${jersey.version}</version>
         </dependency>
 
+        <!-- JSR 330 -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.atmosphere</groupId>
+            <artifactId>atmosphere-spring</artifactId>
+            <version>${atmosphere.version}</version>
+        </dependency>
+
         <!-- Unit test -->
         <dependency>
             <groupId>junit</groupId>

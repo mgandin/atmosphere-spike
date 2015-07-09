@@ -6,19 +6,18 @@ import java.util.UUID;
 
 public class Payment {
 
+    private static final boolean hasPayed = false;
 
-    private boolean hasPayed = false;
-
-    private Map<String,Boolean> pay = new HashMap<>();
+    private final static Map<String,Boolean> pay = new HashMap<>();
 
     public String start() {
         String uuid = UUID.randomUUID().toString();
-        pay.put(uuid,hasPayed);
+        pay.put(uuid, hasPayed);
         return uuid;
     }
 
     public void pay(String uuid) {
-        pay.put(uuid,true);
+        pay.put(uuid, true);
     }
 
     public String payed(String uuid) {

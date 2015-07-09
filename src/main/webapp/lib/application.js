@@ -6,11 +6,9 @@ $(function () {
        var content = $('#content');
            var input = $('#input');
            var status = $('#status');
-           var myName = false;
-           var author = null;
            var logged = false;
            var socket = $.atmosphere;
-           var request = { url: document.location.toString() + 'rest/refresh/3DS/' + uuid,
+           var request = { url: document.location.toString() + 'async',
                            contentType : "application/json",
                            logLevel : 'debug',
                            transport : 'websocket' ,
@@ -19,12 +17,11 @@ $(function () {
 
 
            request.onOpen = function(response) {
-               content.html($('<p>', { text: 'Atmosphere connected using ' + response.transport }));
+
            };
 
            request.onMessage = function (response) {
                var message = response.responseBody;
-
                addMessage(message, new Date());
            };
 
@@ -37,7 +34,9 @@ $(function () {
                    + 'socket or the server is down' }));
            };
 
-           var subSocket = socket.subscribe(request);
+           var subSocket = socket.subscribe(request, function(data) {
+               subSocket.push(uuid);
+           });
            function addMessage(message, datetime) {
                    content.text((datetime.getHours() < 10 ? '0' + datetime.getHours() : datetime.getHours()) + ':'
                        + (datetime.getMinutes() < 10 ? '0' + datetime.getMinutes() : datetime.getMinutes())
