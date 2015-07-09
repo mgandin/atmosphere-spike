@@ -9,10 +9,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
 @Path("/refresh/3DS")
-public class WebSocketResource {
+public class PaymentResources {
 
 
-    private final Logger logger = LoggerFactory.getLogger(WebSocketResource.class);
+    private final Logger logger = LoggerFactory.getLogger(PaymentResources.class);
 
     @Autowired
     private Payment payment;
